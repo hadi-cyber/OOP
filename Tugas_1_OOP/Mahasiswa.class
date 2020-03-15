@@ -1,0 +1,35 @@
+public class Mahasiswa {
+private String nim;
+private String nama;
+private Integer nilai;
+
+public Mahasiswa() {
+this.nim = “18090112”;
+this.nama = “Hadi Kusumanto”;
+this.nilai = 0;
+}
+public String getNama() {
+return nama;
+}
+public void setNama(String newNama) {
+this.nama = newNama;
+}
+public Integer getNilai() {
+return nilai;
+}
+public void setNilai(String newNilai) {
+this.nilai = Integer.parseInt(newNilai);
+}
+public String getNim() {
+return nim;
+}
+public void setNim(String newNim) {
+this.nim = newNim;
+}
+public String toString() {
+String teks;
+teks = “NIM : ” + this.getNim() + “’n” + “NAMA : ” + this.getNama()
++ “’n” + “NILAI : ” + this.getNilai() + “’n”;
+return teks;
+}
+}
