@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tambah Data</title>
+</head>
+<body>
+<div>
+    <h3>Tambah Data Mahasiswa</h3>
+    <div>
+        <form action="#" th:action="@{/simpan}" th:object="${data}" method="post">
+            <table>
+                <tr>
+                    <td>Nim</td>
+                    <td><input type="text" th:field="*{nim}" id="nim"></td>
+                </tr>
+                <tr>
+                    <td>Nama</td>
+                    <td><input type="text" th:field="*{nama}" id="nama"></td>
+                </tr>
+                <tr>
+                    <td>Jurusan</td>
+                    <td><input type="text" th:field="*{jurusan}" id="jurusan"></td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td><input type="text" th:field="*{alamat}" id="alamat"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                        <!-- backround color  >> bertujuan untuk memberi warrna pada tombol -->
+                        <!-- color >> bertujuan untuk memberi warna pada tulisan -->
+                        <!-- text-align >> untuk membuat text rata tengah atau center -->
+                        <input style="background-color: blue;
+                    color: white;
+                    padding: 14px 25px;
+                    text-align: center;
+                    display: inline-block;" type="submit" value="Simpan"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

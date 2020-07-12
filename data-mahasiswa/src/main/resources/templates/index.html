@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Aplikasi Data Mahasiswa</title>
+</head>
+<body>
+<h1>Selamat Datang di Aplikasi Data Mahasiswa</h1>
+
+<button style="background-color: blue;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  display: inline-block;"><a style="color: white;" href="/tambah"> Tambah Data </a></button>
+<!-- backround color  >> bertujuan untuk memberi warrna pada tombol -->
+<!-- color >> bertujuan untuk memberi warna pada tulisan -->
+<!-- text-align >> untuk membuat text rata tengah atau center -->
+</br></br>
+<!-- </br> >> bertujuan untuk enter sebuah objek/ memberi jarak antara satu objek ke objek lain, biasanya jarak yang di hasilkan sebesar 0,5 px -->
+
+<div th:switch="${data}">
+    <div>
+        <h2 th:case="null">Tidak ada data</h2>
+        <div th:case="*">
+            <table style="border: 1px solid black; width: 85%;" >
+                <thead>
+                <tr>
+                    <th style="border: 1px solid black; width: 15%; color: blue;">Nim</th>
+                    <!-- Border >> bertujuan untuk memberi garis pada table -->
+                    <!-- solid black >> bertujuan untuk memberi warna pada garis table yaitu dengan warna hitam -->
+                    <!-- width >> adalah lebar kolom -->
+                    <!-- color >> untuk memberi warna pada text -->
+                    <!-- Style bertujuan untuk memberi css di dalam line, sebenarnya tidak bagus kalau css di dalam line harusnya di pisah atau membuat file dengan format .css-->
+                    <th style="border: 1px solid black; width: 25%;  color: blue;">Nama</th>
+                    <th style="border: 1px solid black; width: 20%;  color: blue;">Jurusan</th>
+                    <th style="border: 1px solid black; width: 20%;  color: blue;">Alamat</th>
+                    <th style="border: 1px solid black; width: 15%;  color: blue;">Opsi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="data : ${data}">
+                    <td  style="border: 1px solid black; width: 20%; " th:text="${data.nim}"></td>
+                    <td  style="border: 1px solid black; width: 20%; " th:text="${data.nama}"></td>
+                    <td  style="border: 1px solid black; width: 20%; " th:text="${data.jurusan}"></td>
+                    <td  style="border: 1px solid black; width: 20%; " th:text="${data.alamat}"></td>
+                    <td  style="border: 1px solid black; background-color: white;"><button style="background-color: blue; color: white; padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block;">
+                        <a style="color: white;" th:href="@{/ubah/{nim}(nim=${data.nim})}">Ubah</a> </button>
+                        <button style="background-color: blue; padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block;">
+                            <a style="color: white;" th:href="@{/hapus/{nim}(nim=${data.nim})}">Hapus</a>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
